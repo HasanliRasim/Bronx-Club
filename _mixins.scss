@@ -1,0 +1,22 @@
+@import "./variables";
+
+@mixin mobile {
+    @media (max-width: #{$small-devices}){
+        @content;
+    }
+}
+
+@mixin btn-theme {
+    font-family: "Oswald", sans-serif;
+    padding: 15px 50px;
+    cursor: pointer;
+    border: none;
+    background-color: #ff1010;
+    color: $main-color;
+    font-size: 15px;
+    font-weight: bold;
+    &:hover {
+      background-color: #c30000;
+      transition: all 0.3s;
+    }
+}

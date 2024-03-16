@@ -1,0 +1,393 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+@import "variables";
+@import "mixins";
+@import "extends";
+.container {
+  @include mobile {
+    height: 600px;
+    background-position: 45% 40%;
+  }
+  width: 100%;
+  height: 750px;
+  background-image: url(../img/bg_img.webp);
+  background-size: cover;
+  background-position: left bottom;
+
+
+  // HEADER START
+  &__header {
+    @include mobile {
+      padding: 25px 5%;
+      justify-content: space-between;
+    }
+    width: 100%;
+    padding: 40px 8%;
+    gap: 70px;
+    @extend %d-flex-center;
+    justify-content: flex-start;
+    &__title {
+      &__img {
+        width: 7rem;
+      }
+    }
+    &__nav {
+      display: flex;
+      align-items: center;
+      &__burger {
+        display: none;
+        @include mobile {
+          display: flex;
+        }
+      }
+      &__ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        @include mobile {
+          display: none;
+        }
+        &__list {
+          font-family: "DM Sans", sans-serif;
+          list-style-type: none;
+          font-size: 15px;
+          &:hover {
+            ::after {
+              content: "";
+              height: 0.5px;
+              width: 100%;
+              background-color: #fff;
+              left: 0;
+              bottom: -3px;
+              position: absolute;
+              opacity: 1;
+            }
+          }
+        }
+        &__link {
+          color: $main-color;
+          text-decoration: none;
+          position: relative;
+        }
+        ::after {
+          content: "";
+          height: 0.5px;
+          width: 100%;
+          background-color: #fff;
+          left: 0;
+          bottom: -3px;
+          position: absolute;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  // HEADER END
+  &__box {
+    padding: 11% 8%;
+    @include mobile {
+      margin-top: 55px;
+    }
+    &__info {
+      @include mobile {
+        width: 100%;
+        margin-bottom: 50px;
+      }
+      width: 100%;
+      margin-bottom: 75px;
+      &__title {
+        @include mobile {
+          width: 100%;
+          font-size: 45px;
+        }
+        color: $main-color;
+        font-family: "Oswald", sans-serif;
+        font-size: 75px;
+        margin-bottom: 30px;
+        width: 70%;
+      }
+      &__text {
+        color: $main-color;
+        font-family: "DM Sans", sans-serif;
+        font-size: 18px;
+        @include mobile {
+          width: 80%;
+        }
+      }
+    }
+    &__btn {
+      @include btn-theme;
+    }
+  }
+}
+
+// MAIN START
+.main {
+
+    // SECTION CARDS START
+  &__cards {
+    padding: 8% 8%;
+    &__title {
+      font-family: "Oswald", sans-serif;
+      font-size: 45px;
+      margin-bottom: 90px;
+      @include mobile {
+        width: 100%;
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+    }
+    &__items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 15%;
+      row-gap: 90px;
+      @include mobile {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 10px;
+      }
+      &__box {
+        width: 100%;
+        &__img {
+          width: 100%;
+        }
+        &__text {
+          margin-top: 10px;
+          font-size: 30px;
+          font-weight: 800;
+          font-family: "Oswald", sans-serif;
+          @include mobile {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+    &__button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 80px;
+      @include mobile {
+        margin-top: 30px;
+      }
+      &__btn {
+        @include btn-theme;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+//   SECTION CARDS END
+
+
+// SECTION INFO START
+  &__info {
+    background-image: url(../img/background_man_with_ball_img.webp);
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+    @include mobile {
+      height: 450px;
+      background-position: center bottom;
+    }
+    &__holder {
+      padding: 10% 8%;
+      width: 49%;
+      @include mobile {
+        width: 93%;
+      }
+      &__title {
+        color: $main-color;
+        font-family: "Oswald", sans-serif;
+        font-size: 50px;
+        @include mobile {
+          font-size: 35px;
+        }
+      }
+      &__text {
+        color: $main-color;
+        font-family: "DM Sans", sans-serif;
+        margin-top: 45px;
+        margin-bottom: 30px;
+        font-weight: 550;
+        @include mobile {
+          font-weight: 580;
+        }
+      }
+      &__description {
+        color: $main-color;
+        font-family: "DM Sans", sans-serif;
+        margin-bottom: 90px;
+        font-weight: 550;
+        @include mobile {
+          font-weight: 580;
+          margin-bottom: 20px;
+        }
+      }
+      &__btn {
+        @include btn-theme;
+      }
+    }
+  }
+//   SECTION INFO END 
+
+
+// SETION CLASSES START
+  &__classes {
+    background-image: url(../img/background_girl_gym.webp);
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+    @include mobile {
+      height: 380px;
+      background-position: 50% 45%;
+    }
+    &__inner {
+      float: inline-end;
+      width: 33%;
+      margin-top: 10%;
+      padding-right: 7%;
+      @include mobile {
+        width: 85%;
+      }
+      &__title {
+        color: $main-color;
+        font-family: "Oswald", sans-serif;
+        font-size: 50px;
+        @include mobile {
+          font-size: 35px;
+          font-weight: bolder;
+        }
+      }
+      &__text {
+        color: $main-color;
+        font-family: "DM Sans", sans-serif;
+        margin-top: 45px;
+        margin-bottom: 30px;
+        font-weight: 550;
+        @include mobile {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+      }
+      &__description {
+        color: $main-color;
+        font-family: "DM Sans", sans-serif;
+        margin-bottom: 90px;
+        font-weight: 550;
+        @include mobile {
+          font-weight: 580;
+          margin-bottom: 20px;
+        }
+      }
+    }
+    &__button {
+      &__btn {
+        @include btn-theme;
+      }
+    }
+  }
+//   SECTION CLASSES END
+
+
+// SECTION ARTICLE START
+  &__article {
+    padding: 8% 8%;
+    @include mobile {
+      padding: 7% 8%;
+      width: 100%;
+    }
+    &__title {
+      font-size: 45px;
+      font-family: "Oswald", sans-serif;
+      font-weight: bolder;
+      margin-bottom: 40px;
+      @include mobile {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+    }
+    &__btn {
+      @include btn-theme;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+  }
+//   SECTION ARTICLE END
+}
+// MAIN END
+
+
+// FOOTER START
+.footer {
+  @extend %d-flex-center;
+  @include mobile {
+    padding: 8% 10% 8% 8%;
+  }
+  align-items: start;
+  padding: 10% 30% 10% 8%;
+  background-color: $secondary-color;
+  &__contact {
+    &__title {
+      color: $main-color;
+      font-family: "Oswald", sans-serif;
+      margin-bottom: 30px;
+      font-size: 25px;
+      @include mobile {
+        font-size: 20px;
+      }
+    }
+    &__text {
+      color: $main-color;
+      font-family: "DM Sans", sans-serif;
+      margin-bottom: 55px;
+    }
+    &__icons {
+      display: flex;
+      gap: 50px;
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+  &__address {
+    &__title {
+      color: $main-color;
+      font-family: "Oswald", sans-serif;
+      margin-bottom: 30px;
+      font-size: 25px;
+      @include mobile {
+        font-size: 20px;
+      }
+    }
+    &__text {
+      color: $main-color;
+      font-family: "DM Sans", sans-serif;
+    }
+    &__description {
+      color: $main-color;
+      font-family: "DM Sans", sans-serif;
+      @include mobile {
+        margin-bottom: 30px;
+      }
+    }
+    &__icons {
+      display: none;
+      @include mobile {
+        display: flex;
+        gap: 30px;
+      }
+    }
+  }
+}
+// FOOTER END
